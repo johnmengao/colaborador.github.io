@@ -3,53 +3,30 @@
 <head>
     <title>Dados do Funcionário</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body { font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; }
-        .employee-card { border: 1px solid #ddd; padding: 20px; border-radius: 8px; margin-top: 20px; }
-    </style>
 </head>
 <body>
-    <h1>Informações do Funcionário</h1>
-    <div id="employee-data" class="employee-card">
-        <p>Carregando dados...</p>
-    </div>
-
+    <h1>Funcionário</h1>
+    <div id="employee-data">Carregando...</div>
+    
     <script>
-        // Pega o ID da URL
-        const urlParams = new URLSearchParams(window.location.search);
-        const id = urlParams.get('id');
-        
-        // Dados mockados - substitua por sua API real ou dados estáticos
-        const employees = {
-            "1": {
-                "matricula": "001",
-                "nome": "João Silva",
-                "admissao": "10/03/2015",
-                "funcao": "Desenvolvedor"
-            },
-            "2": {
-                "matricula": "002",
-                "nome": "Maria Souza",
-                "admissao": "15/08/2018",
-                "funcao": "Designer"
-            }
-        };
-        
-        // Exibe os dados
-        if (id && employees[id]) {
-            const emp = employees[id];
-            document.getElementById('employee-data').innerHTML = `
-                <h2>${emp.nome}</h2>
-                <p><strong>Matrícula:</strong> ${emp.matricula}</p>
-                <p><strong>Admissão:</strong> ${emp.admissao}</p>
-                <p><strong>Função:</strong> ${emp.funcao}</p>
-            `;
-        } else {
-            document.getElementById('employee-data').innerHTML = `
-                <p>Funcionário não encontrado ou ID inválido.</p>
-            `;
-        }
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = urlParams.get('id');
+    
+    // Dados mockados - substitua depois por dados reais
+    const employees = {
+        "1": {"matricula": "$matricula", "nome": "$nome"}   
+    };
+    
+    if (id && employees[id]) {
+        document.getElementById('employee-data').innerHTML = `
+            <h2>${employees[id].nome}</h2>
+            <p>Matrícula: ${employees[id].matricula}</p>
+        `;
+    } else {
+        document.getElementById('employee-data').innerHTML = `
+            <p>Funcionário não encontrado</p>
+        `;
+    }
     </script>
 </body>
 </html>
